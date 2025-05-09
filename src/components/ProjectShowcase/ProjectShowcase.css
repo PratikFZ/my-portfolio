@@ -1,0 +1,15 @@
+.project-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 4rem 0;
+    min-height: calc(100vh - 100px);
+    align-items: center;
+}
+.project-screen {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
