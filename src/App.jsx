@@ -20,8 +20,8 @@ function App() {
     projectsWorked: 20,
     projectsDeployed: 5,
     subtitle: "Mobile App Developer, AI Enthusiast, and Open Source Contributor",
-    email: "your.email@example.com",
-    phone: "+1234567890",
+    email: "work.pratikrajput@gmail.com",
+    phone: "+91 94223-36464",
     address: "Your City, Your Country",
   };
 
