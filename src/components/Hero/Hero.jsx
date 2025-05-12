@@ -28,7 +28,7 @@ function Hero({ personalInfo }) {
       <div className="profile-image-container">
         <div className="profile-image">
           <img
-            src="/assets/profile_img.jpg" // Use the path relative to the public folder
+            src="https://github.com/PratikFZ/my-portfolio/blob/main/public/assets/profile_img.jpg?raw=true"
             alt="Profile"
             style={{
               width: "350px",
