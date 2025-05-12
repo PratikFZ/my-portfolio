@@ -26,10 +26,18 @@ function App() {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const nextPageIndex = currPageIndex === pages.length - 1 ? 0 : currPageIndex + 1;
-      setCurrPageIndex(nextPageIndex);
-      window.location.href = pages[nextPageIndex];
+    const handleScroll = (event) => {
+      if (event.deltaY > 0) {
+        // Scrolling down
+        const nextPageIndex = currPageIndex === pages.length - 1 ? 0 : currPageIndex + 1;
+        setCurrPageIndex(nextPageIndex);
+        window.location.href = pages[nextPageIndex];
+      } else if (event.deltaY < 0) {
+        // Scrolling up
+        const prevPageIndex = currPageIndex === 0 ? pages.length - 1 : currPageIndex - 1;
+        setCurrPageIndex(prevPageIndex);
+        window.location.href = pages[prevPageIndex];
+      }
     };
 
     window.addEventListener('wheel', handleScroll, { passive: true });

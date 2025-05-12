@@ -11,12 +11,6 @@ const ProjectShowcase = () => {
 
     return (
         <div className="project-showcase" id="projects">
-            <h2 className="project-showcase-title">Projects</h2>
-            <div className="project-showcase-description">
-                <p className="project-showcase-description-text">
-                    Here are some of the projects I have worked on. Click on the cards to see more details.
-                </p>
-            </div>
             <div className="project-details">
                 <SimpleAnimatedCard 
                     activeProject={activeProject}
