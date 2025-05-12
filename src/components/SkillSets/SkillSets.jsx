@@ -37,6 +37,10 @@ const SkillSets = () => {
 
   return (
     <div className="skill-sets" id="skills">
+        <h1 className="skill-sets-title">Skills</h1>
+        <p className="skill-sets-description">
+            Here are some of the technologies I have worked with:
+        </p>
         <div className="skill-blocks">
             {skills.map((skill, index) => (
             <SkillBlock key={index} skill={skill} />
