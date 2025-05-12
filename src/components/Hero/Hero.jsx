@@ -28,7 +28,7 @@ function Hero({ personalInfo }) {
       <div className="profile-image-container">
         <div className="profile-image">
           <img
-            src="/src/assets/profile_img.jpg"
+            src="./src/assets/profile_img.jpg"
             alt="Profile"
             style={{
               width: "350px",

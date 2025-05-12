@@ -7,7 +7,7 @@ import SkillSets from './components/SkillSets/SkillSets.jsx';
 import SimpleMailCard from './components/MailCard/MailCard.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
-const pages = ['/#', '/#skills', '/#projects', '/#footer'];
+const pages = ['#', '#skills', '#projects', '#footer'];
 
 function App() {
   const [currPageIndex, setCurrPageIndex] = useState(0);
@@ -31,12 +31,12 @@ function App() {
         // Scrolling down
         const nextPageIndex = currPageIndex === pages.length - 1 ? 0 : currPageIndex + 1;
         setCurrPageIndex(nextPageIndex);
-        window.location.href = pages[nextPageIndex];
+        window.location.hash = pages[nextPageIndex];
       } else if (event.deltaY < 0) {
         // Scrolling up
         const prevPageIndex = currPageIndex === 0 ? pages.length - 1 : currPageIndex - 1;
         setCurrPageIndex(prevPageIndex);
-        window.location.href = pages[prevPageIndex];
+        window.location.hash = pages[prevPageIndex];
       }
     };
 
@@ -45,6 +45,15 @@ function App() {
       window.removeEventListener('wheel', handleScroll, { passive: true });
     };
   }, [currPageIndex]);
+
+  useEffect(() => {
+    // Update the current page index based on the hash in the URL
+    const hash = window.location.hash;
+    const pageIndex = pages.indexOf(hash);
+    if (pageIndex !== -1) {
+      setCurrPageIndex(pageIndex);
+    }
+  }, []);
 
   return (
     <div className="app">
