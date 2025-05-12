@@ -1,11 +1,26 @@
 .project-showcase {
-    display: grid;
+    display: run-in;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    padding: 4rem 0;
+    /* padding: 2rem 0; */
     min-height: calc(100vh - 100px);
-    align-items: center;
 }
+.project-showcase-title {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    /* margin: 2rem 0; */
+}
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* gap: 2rem; */
+    /* padding: 2rem 0; */
+    min-height: calc(100vh - 100px);
+    justify-content: space-around;
+    align-items: stretch;
+}
+
 .project-screen {
     width: 100%;
     height: auto;

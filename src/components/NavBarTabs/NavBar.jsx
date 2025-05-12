@@ -1,14 +1,16 @@
 import React from 'react';
 import Tabs from '/src/components/NavBarTabs/Tabs.jsx';
 import '/src/components/NavBarTabs/NavBar.css';
+import { tabs } from './Tabs_model.jsx';
 
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h1>PRATIKRAJPUT</h1>
+        <h1 onClick={() => {
+              window.location.href = '/#';
+            }} >PRATIKRAJPUT</h1>
         <div className="dot"></div>
-        
       </div>
       
       <div className="navbar-menu">

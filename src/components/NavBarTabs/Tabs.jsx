@@ -1,21 +1,22 @@
 import React from 'react';
 // import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Tabs.css'; 
-
-const tabs = ['','projects', 'personal', 'contact'];
+import { tabs } from './Tabs_model.jsx'; // Import the tabs array from NavBar.jsx
 
 function Tabs() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
-  
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    window.location.href = '/#' + tab.toString();
+  };
   return (
     <ul className="tabs">
       {tabs.map(tab => (
         <li key={tab} className={`tab ${activeTab === tab ? 'active' : ''}`}>
           <button 
               onClick={() => {
-                setActiveTab(tab);
-                window.location.href = '/#'+tab.toString();
+                handleTabClick(tab);
               }}>{tab}</button>
         </li>
       ))}

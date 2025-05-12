@@ -1,0 +1,13 @@
+.skill-sets {
+    /* padding: 100px; */
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+.skill-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
