@@ -1,22 +1,20 @@
 import React from 'react';
-// import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
 import './Tabs.css'; 
-import { tabs } from './Tabs_model.jsx'; // Import the tabs array from NavBar.jsx
+import { tabs } from './Tabs_model.jsx';
 
-function Tabs() {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-    window.location.href = '/#' + tab.toString();
+function Tabs({ currPageIndex, setCurrPageIndex }) {
+  const handleTabClick = (tabIndex) => {
+    setCurrPageIndex(tabIndex);
+    window.location.href = '/#' + tabs[tabIndex];
   };
+
   return (
     <ul className="tabs">
-      {tabs.map(tab => (
-        <li key={tab} className={`tab ${activeTab === tab ? 'active' : ''}`}>
+      {tabs.map((tab, index) => (
+        <li key={tab} className={`tab ${currPageIndex === index ? 'active' : ''}`}>
           <button 
               onClick={() => {
-                handleTabClick(tab);
+                handleTabClick(index);
               }}>{tab}</button>
         </li>
       ))}

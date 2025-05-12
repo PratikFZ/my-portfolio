@@ -1,0 +1,46 @@
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid var(--text-secondary);
+}
+
+.footer-content {
+  margin-bottom: 20px;
+}
+
+.footer-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.footer-content a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+.footer-extra {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.footer-extra p {
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: 20px;
+}
