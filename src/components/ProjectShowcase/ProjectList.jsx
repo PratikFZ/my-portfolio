@@ -9,7 +9,7 @@ description: `
 NLP-NER to recognize medicine and dosage from extracted text and flutter for Mobile-App that reduced
 medicine alarm setting time by 30%.\n
 ● Useful for elderly peoples, employees, and college students with busy schedules`,
-        url: "http://localhost:8000/"
+        url: "https://pratikfz.github.io/Medico__/"
     },
     {
         title: "News-App",
@@ -21,7 +21,7 @@ medicine alarm setting time by 30%.\n
 NLP-NER to recognize medicine and dosage from extracted text and flutter for Mobile-App that reduced
 medicine alarm setting time by 30%.\n
 ● Useful for elderly peoples, employees, and college students with busy schedules`,
-        url: "http://localhost:8005/"
+        url: "https://pratikfz.github.io/news_app/"
     },
     {
         title: "ChatGPT-Chatbot",
