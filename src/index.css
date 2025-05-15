@@ -30,6 +30,19 @@ body {
   zoom: 1.2;
 }
 
-/* .main-content {
-  padding-top: 40px;
-} */
+.main-content {
+  padding-top: 5vh; /* Use a percentage of the viewport height for dynamic scaling */
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 3vh; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 2vh; /* Further reduce padding for very small screens */
+  }
+}

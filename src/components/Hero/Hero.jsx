@@ -15,7 +15,7 @@ function Hero({ personalInfo }) {
         {/* <h2 className="name">{personalInfo.name}</h2> */}
         <Name name={personalInfo.name} />
         <p className="subtitle">{personalInfo.subtitle}</p>
-        <button className="download-btn">
+        <button className="download-btn" onClick={() => window.open("https://drive.google.com/file/d/1LyABTwuZDR7bPgDyOhIfGm_DkPYFcS-M/view?usp=sharing", "_blank")}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>

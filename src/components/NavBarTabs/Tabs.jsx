@@ -5,7 +5,7 @@ import { tabs } from './Tabs_model.jsx';
 function Tabs({ currPageIndex, setCurrPageIndex }) {
   const handleTabClick = (tabIndex) => {
     setCurrPageIndex(tabIndex);
-    window.location.href = '/#' + tabs[tabIndex];
+    window.location.hash = '#' + tabs[tabIndex];
   };
 
   return (

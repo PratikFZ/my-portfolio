@@ -8,7 +8,7 @@ function Navbar({ currPageIndex, setCurrPageIndex }) {
       <div className="navbar-brand">
         <h1 onClick={() => {
               setCurrPageIndex(0);
-              window.location.href = '#';
+              window.location.hash = '#';
             }} >PRATIKRAJPUT</h1>
         <div className="dot"></div>
       </div>
