@@ -11,7 +11,7 @@ const pages = ['#', '#skills', '#projects', '#footer'];
 
 function App() {
   const [currPageIndex, setCurrPageIndex] = useState(0);
-  const scrollThreshold = 50; // Minimum scroll amount to trigger page change
+  const scrollThreshold = 50; 
   const scrollTimeout = useRef(null);
   const scrollAmount = useRef(0);
   const isScrolling = useRef(false);
@@ -31,47 +31,35 @@ function App() {
 
   useEffect(() => {
     const handleScroll = (event) => {
-      event.preventDefault(); // Prevent default scroll behavior
-      
-      // Accumulate scroll amount
+      event.preventDefault();
       scrollAmount.current += event.deltaY;
-      
-      // If we're already processing a scroll, don't trigger another one
       if (isScrolling.current) return;
-      
-      // Clear any existing timeout
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
       }
       
-      // Set a timeout to process the scroll after user stops scrolling
       scrollTimeout.current = setTimeout(() => {
-        // Only change page if scroll amount exceeds threshold
         if (Math.abs(scrollAmount.current) >= scrollThreshold) {
           isScrolling.current = true;
           
           if (scrollAmount.current > 0) {
-            // Scrolling down
             const nextPageIndex = currPageIndex === pages.length - 1 ? 0 : currPageIndex + 1;
             setCurrPageIndex(nextPageIndex);
             window.location.hash = pages[nextPageIndex];
           } else {
-            // Scrolling up
             const prevPageIndex = currPageIndex === 0 ? pages.length - 1 : currPageIndex - 1;
             setCurrPageIndex(prevPageIndex);
             window.location.hash = pages[prevPageIndex];
           }
           
-          // Reset after navigation completes (after animation)
           setTimeout(() => {
             isScrolling.current = false;
             scrollAmount.current = 0;
-          }, 800); // Match this with your scroll animation duration
+          }, 800); 
         } else {
-          // Reset for small scrolls that don't trigger navigation
           scrollAmount.current = 0;
         }
-      }, 100); // Wait 100ms after last scroll event
+      }, 100);
     };
 
     window.addEventListener('wheel', handleScroll, { passive: false });
