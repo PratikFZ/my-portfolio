@@ -134,10 +134,38 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  border: 4px dashed var(--accent-color);
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
+  /* Remove the static border */
+  /* border: 4px dashed var(--accent-color); */
+}
+
+/* Add rotating border using pseudo-element */
+.profile-image::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 4px dashed var(--accent-color);
+  animation: rotate-border 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Keyframe animation for rotating border */
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .placeholder-img {
@@ -163,6 +191,15 @@
   .profile-image {
     width: 250px;
     height: 250px;
+  }
+  
+  /* Adjust the rotating border for smaller screens */
+  .profile-image::before {
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-width: 3px;
   }
   
   .hello, .name {
