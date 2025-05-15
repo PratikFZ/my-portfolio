@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useRef } from 'react';
 import Navbar from './components/NavBarTabs/NavBar.jsx';
 import Hero from './components/Hero/Hero.jsx';
 import ProjectAppshowcase from './components/ProjectShowcase/ProjectShowcase.jsx';
@@ -11,6 +11,10 @@ const pages = ['#', '#skills', '#projects', '#footer'];
 
 function App() {
   const [currPageIndex, setCurrPageIndex] = useState(0);
+  const scrollThreshold = 50; // Minimum scroll amount to trigger page change
+  const scrollTimeout = useRef(null);
+  const scrollAmount = useRef(0);
+  const isScrolling = useRef(false);
 
   const personalInfo = {
     name: "PRATIK",
@@ -27,22 +31,55 @@ function App() {
 
   useEffect(() => {
     const handleScroll = (event) => {
-      if (event.deltaY > 0) {
-        // Scrolling down
-        const nextPageIndex = currPageIndex === pages.length - 1 ? 0 : currPageIndex + 1;
-        setCurrPageIndex(nextPageIndex);
-        window.location.hash = pages[nextPageIndex];
-      } else if (event.deltaY < 0) {
-        // Scrolling up
-        const prevPageIndex = currPageIndex === 0 ? pages.length - 1 : currPageIndex - 1;
-        setCurrPageIndex(prevPageIndex);
-        window.location.hash = pages[prevPageIndex];
+      event.preventDefault(); // Prevent default scroll behavior
+      
+      // Accumulate scroll amount
+      scrollAmount.current += event.deltaY;
+      
+      // If we're already processing a scroll, don't trigger another one
+      if (isScrolling.current) return;
+      
+      // Clear any existing timeout
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
       }
+      
+      // Set a timeout to process the scroll after user stops scrolling
+      scrollTimeout.current = setTimeout(() => {
+        // Only change page if scroll amount exceeds threshold
+        if (Math.abs(scrollAmount.current) >= scrollThreshold) {
+          isScrolling.current = true;
+          
+          if (scrollAmount.current > 0) {
+            // Scrolling down
+            const nextPageIndex = currPageIndex === pages.length - 1 ? 0 : currPageIndex + 1;
+            setCurrPageIndex(nextPageIndex);
+            window.location.hash = pages[nextPageIndex];
+          } else {
+            // Scrolling up
+            const prevPageIndex = currPageIndex === 0 ? pages.length - 1 : currPageIndex - 1;
+            setCurrPageIndex(prevPageIndex);
+            window.location.hash = pages[prevPageIndex];
+          }
+          
+          // Reset after navigation completes (after animation)
+          setTimeout(() => {
+            isScrolling.current = false;
+            scrollAmount.current = 0;
+          }, 800); // Match this with your scroll animation duration
+        } else {
+          // Reset for small scrolls that don't trigger navigation
+          scrollAmount.current = 0;
+        }
+      }, 100); // Wait 100ms after last scroll event
     };
 
-    window.addEventListener('wheel', handleScroll, { passive: true });
+    window.addEventListener('wheel', handleScroll, { passive: false });
     return () => {
-      window.removeEventListener('wheel', handleScroll, { passive: true });
+      window.removeEventListener('wheel', handleScroll, { passive: false });
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
     };
   }, [currPageIndex]);
 
