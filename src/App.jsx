@@ -7,7 +7,7 @@ import SkillSets from './components/SkillSets/SkillSets.jsx';
 import SimpleMailCard from './components/MailCard/MailCard.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
-const pages = ['#', '#skills', '#projects', '#footer'];
+const pages = ['#', '#skills', '#projects', '#contact'];
 
 function App() {
   const [currPageIndex, setCurrPageIndex] = useState(0);
@@ -26,7 +26,7 @@ function App() {
     subtitle: "Mobile App Developer, AI Enthusiast, and Open Source Contributor",
     email: "work.pratikrajput@gmail.com",
     phone: "+91 94223-36464",
-    address: "Your City, Your Country",
+    address: "Pune, India",
   };
 
   useEffect(() => {

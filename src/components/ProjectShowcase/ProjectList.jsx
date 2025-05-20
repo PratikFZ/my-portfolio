@@ -13,7 +13,7 @@ medicine alarm setting time by 30%.\n
     },
     {
         title: "News-App",
-        tech_stack: "Flutter, Flask, spacy, NLTK, OpenCV, transformers, tesseract-OCR",
+        tech_stack: "Flutter, Flask, newsAPI",
         dates_worked: "Jan 2024 – Mar 20",
         description: `
 ● Extract the medicine and dosage information from medical prescriptions and set alarm according to dosage\n
@@ -24,8 +24,8 @@ medicine alarm setting time by 30%.\n
         url: "https://pratikfz.github.io/news_app/"
     },
     {
-        title: "ChatGPT-Chatbot",
-        tech_stack: "Flutter, Flask, spacy, NLTK, OpenCV, transformers, tesseract-OCR",
+        title: "Algonimation",
+        tech_stack: "Manim, Python",
         dates_worked: "Jan 2024 – Mar 20",
         description: `
 ● Extract the medicine and dosage information from medical prescriptions and set alarm according to dosage\n

@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = ({ personalInfo }) => {
   return (
-    <footer className="footer" id="footer">
+    <footer className="footer" id="contact">
       <div className="footer-content">
         <h2>Contact Information</h2>
         <p><strong>Email:</strong> <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a></p>
