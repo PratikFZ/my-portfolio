@@ -61,7 +61,7 @@ export default function SimpleEmailCard() {
       <div className={`mail-card ${isExpanded ? 'expand' : 'collapse'}`}>
         {isExpanded && (
           <>
-            <h2 className="label-contact-me">Contact Me</h2>
+            <h2 className="label-contact-me">Send a Message</h2>
 
             <div className="form-group">
               <label>Name</label>

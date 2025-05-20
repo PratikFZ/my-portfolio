@@ -1,1 +1,1 @@
-export const tabs = ['','skills','projects', 'personal', 'contact'];
+export const tabs = ['','skills','projects', 'contact'];
