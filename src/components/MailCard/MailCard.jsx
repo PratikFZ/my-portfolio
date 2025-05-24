@@ -51,13 +51,7 @@ export default function SimpleEmailCard() {
 
   return (
     <div className={`mail-card-container ${isExpanded ? 'expanded' : ''}`}>
-      <button
-        className="floating-button"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        {isExpanded ? '✖' : '✉'}
-      </button>
-
+      
       <div className={`mail-card ${isExpanded ? 'expand' : 'collapse'}`}>
         {isExpanded && (
           <>
@@ -118,6 +112,12 @@ export default function SimpleEmailCard() {
           </>
         )}
       </div>
+      <button
+        className="floating-button"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        {isExpanded ? '✖' : '✉'}
+      </button>
     </div>
   );
 }
