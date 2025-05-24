@@ -24,14 +24,21 @@ body {
 
 .app {
   min-height: 100vh;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
-  zoom: 1.2;
+  padding: 0 0px;
+  /* zoom: 1.2; */
 }
 
 .main-content {
-  padding-top: 5vh; /* Use a percentage of the viewport height for dynamic scaling */
+  padding-top: 5vh; /*Use a percentage of the viewport height for dynamic scaling */
+  padding: 0 5vh;
+  max-width: 70vw;
+  margin: 0 auto;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  /* justify-content: center; */
 }
 
 /* Add media queries for responsiveness */

@@ -2,7 +2,7 @@
 .navbar {
   position: fixed;
   top: 0;
-  width: 80%;
+  width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: space-between; /* Ensure proper spacing between brand and menu */
