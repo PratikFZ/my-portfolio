@@ -74,6 +74,13 @@
     position: relative;
     z-index: 1;
   }
+
+  .profile-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover;
+  }
   
   .job-title {
     font-size: 1.2rem;
@@ -181,18 +188,42 @@
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem 1rem;
+    
+  }
+
+  .hero-content {
+    order: 1;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .download-btn {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
   }
   
   .profile-image-container {
     order: -1;
     margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    
   }
   
   .profile-image {
     width: 250px;
     height: 250px;
   }
-  
+  .profile-img {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    object-fit: cover;
+  } 
   /* Adjust the rotating border for smaller screens */
   .profile-image::before {
     top: -4px;

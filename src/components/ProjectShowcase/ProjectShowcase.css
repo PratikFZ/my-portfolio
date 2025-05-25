@@ -1,39 +1,50 @@
+/* Project Showcase Base Styles */
 .project-showcase {
-    display: run-in;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 6vh 0;
-    min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6vh 0;
+  min-height: calc(100vh - 100px);
+  width: 100%;
 }
+
 .project-showcase-title {
-    text-align: left;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 2rem 0;
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  width: 100%;
 }
+
 .project-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* gap: 2rem; */
-    /* padding: 2rem 0; */
-    width: 100%;
-    min-height: calc(100vh - 100px);
-    justify-content: space-around;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .project-screen {
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: right;
-    align-items: center;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: right;
+  position: relative;
 }
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .try-me-container {
   position: relative;
   display: inline-block;
+  margin: 0 0;
 }
 
 .try-me-tag {
@@ -57,5 +68,125 @@
   }
   50% {
     transform: translateY(-5px);
+  }
+}
+
+/* Large Desktop Screens (1440px+) */
+@media (min-width: 1440px) {
+  .project-details {
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .project-showcase-title {
+    font-size: 2.5rem;
+    max-width: 1400px;
+  }
+}
+
+/* Desktop and Small Desktop (1024px - 1439px) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .project-details {
+    gap: 3rem;
+  }
+}
+
+/* Tablets and Small Desktop (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .project-showcase {
+    padding: 4vh 0;
+  }
+  
+  .project-details {
+    gap: 1.5rem;
+  }
+  
+  .project-showcase-title {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+  }
+}
+
+/* Mobile Devices (< 768px) */
+@media (max-width: 767px) {
+  .project-showcase {
+    padding: 4vh 0;
+    min-height: auto; /* Don't force full height on mobile */
+  }
+
+  .project-details {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 2rem;
+  }
+  
+  .project-screen {
+    order: -1; /* Show the screen first on mobile */
+  }
+  
+  .project-showcase-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .try-me-tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Small Mobile Devices (< 480px) */
+@media (max-width: 479px) {
+  .project-showcase {
+    padding: 3vh 0;
+  }
+  
+  .project-showcase-title {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+  }
+  
+  .project-details {
+    gap: 1.5rem;
+  }
+  
+  .try-me-tag {
+    top: -8px;
+    right: -8px;
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Very Small Mobile Devices (< 360px) */
+@media (max-width: 359px) {
+  .project-showcase-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* For landscape mode on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .project-showcase {
+    padding: 2vh 0;
+    min-height: auto;
+  }
+  
+  .project-details {
+    grid-template-columns: 1fr 1fr; /* Keep two columns in landscape */
+    gap: 1rem;
+  }
+  
+  .project-showcase-title {
+    margin: 1rem 0;
+  }
+}
+
+/* Safari and iOS fixes */
+@supports (-webkit-touch-callout: none) {
+  .project-showcase {
+    /* Fix for iOS Safari viewport height issues */
+    min-height: -webkit-fill-available;
   }
 }

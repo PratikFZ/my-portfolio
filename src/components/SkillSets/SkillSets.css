@@ -5,9 +5,63 @@
     background-color: var(--bg-color);
     text-align: center;
 }
+
 .skill-blocks {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 2rem; /* Add consistent spacing */
+}
+
+.skill-sets-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+/* Responsive styles for 768px and below */
+@media (max-width: 768px) {
+    .skill-sets {
+        width: 100%;
+        padding-top: 80px;    /* Reduced top padding */
+        padding-bottom: 100px; /* Reduced bottom padding */
+        padding-left: 0px;    /* Add side padding */
+        padding-right: 0px;   /* Add side padding */
+        text-align: center; /* Center align text on smaller screens */
+        justify-content: center;
+        align-items: center; /* Center align items */
+        display: flex; /* Ensure flexbox is used for layout */
+        flex-direction: column; /* Stack items vertically */
+    }
+    
+    .skill-blocks {
+        gap: 1rem;  /* Reduce spacing on mobile */
+        width: 100vw; /* Full width for skill blocks */
+        display: flex;
+        flex-wrap: wrap;
+        flex: auto;
+        align-items: center; /* Center align skill blocks */
+        justify-content: center; /* Center content */
+    }
+    
+    .skill-block {
+        flex: 0 0 100%;  /* Full width blocks on mobile */
+        max-width: 350px; /* Maximum width constraint */
+        margin-bottom: 1.5rem;
+    }
+    
+    .skill-sets-title {
+        font-size: 1.6rem; /* Smaller title on mobile */
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Smaller mobile screens */
+@media (max-width: 480px) {
+    .skill-sets {
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
 }

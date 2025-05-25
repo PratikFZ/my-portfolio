@@ -27,15 +27,10 @@ function Hero({ personalInfo }) {
       </div>
       <div className="profile-image-container">
         <div className="profile-image">
-          <img
+          <img className='profile-img'
             src="https://github.com/PratikFZ/my-portfolio/blob/main/public/assets/profile_img.jpg?raw=true"
             alt="Profile"
-            style={{
-              width: "350px",
-              height: "350px",
-              borderRadius: "50%", // Makes it circular
-              objectFit: "cover" // Ensures image covers the area properly
-            }}/>
+            />
           {/* <div className="placeholder-img">
           </div> */}
         </div>
