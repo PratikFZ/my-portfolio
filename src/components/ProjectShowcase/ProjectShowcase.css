@@ -4,9 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6vh 0;
+  padding: 7vh 0;
   min-height: calc(100vh - 100px);
   width: 100%;
+  /* Remove fixed height causing overflow issues */
 }
 
 .project-showcase-title {
@@ -28,7 +29,7 @@
 
 .project-screen {
   width: auto;
-  height: auto;
+  height: 75vh; /* Adjusted to be responsive */
   display: flex;
   justify-content: flex-end;
   align-items: right;
@@ -73,6 +74,9 @@
 
 /* Large Desktop Screens (1440px+) */
 @media (min-width: 1440px) {
+  .project-showcase {
+    height: 100vh;  /* Adjust for larger screens */
+  }
   .project-details {
     gap: 4rem;
     max-width: 1400px;
@@ -87,6 +91,9 @@
 
 /* Desktop and Small Desktop (1024px - 1439px) */
 @media (max-width: 1439px) and (min-width: 1024px) {
+  .project-showcase {
+    height: 100vh;  /* Adjust for larger screens */
+  }
   .project-details {
     gap: 3rem;
   }
@@ -96,6 +103,8 @@
 @media (max-width: 1023px) and (min-width: 768px) {
   .project-showcase {
     padding: 4vh 0;
+    height: auto; /* Don't force full height on tablets */
+    min-height: 100vh; /* Ensure it takes full height */
   }
   
   .project-details {
@@ -113,6 +122,8 @@
   .project-showcase {
     padding: 4vh 0;
     min-height: auto; /* Don't force full height on mobile */
+    justify-content: center;
+    align-items: center;
   }
 
   .project-details {
@@ -121,19 +132,21 @@
   }
   
   .project-screen {
-    order: -1; /* Show the screen first on mobile */
+    order: 1; /* Show the screen first on mobile */
+    padding-bottom: 5vh; /* Reduce padding to prevent overlap */
+    width: 100%; /* Make the screen take full width */
+    height: auto; /* Allow height to adjust based on content */
+    display: flex;
+    justify-content: center; /* Center the screen */
+    align-items: center; /* Center the content vertically */
+    position: relative; /* Ensure relative positioning for try-me tag */
   }
   
-  .project-showcase-title {
-    text-align: center;
-    font-size: 1.5rem;
-    margin: 1.5rem 0;
-  }
-  
-  .try-me-tag {
-    font-size: 0.8rem;
-    padding: 4px 8px;
-  }
+  /* Add containment for project screen to prevent overflow */
+  /* .project-screen > div {
+    max-width: 100%;
+    overflow: hidden;
+  } */
 }
 
 /* Small Mobile Devices (< 480px) */
@@ -188,5 +201,73 @@
   .project-showcase {
     /* Fix for iOS Safari viewport height issues */
     min-height: -webkit-fill-available;
+  }
+}
+
+/* Simple Card Styles */
+.simple-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Change from fixed 45vw to responsive width */
+  max-width: 600px; /* Add max-width instead of percentage width */
+  height: auto;
+  padding: 20px;
+}
+
+.simple-card-wrapper {
+  position: relative;
+  width: 100%; /* Make it responsive */
+  max-width: 500px; /* Add max-width instead of fixed width */
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  background-image: linear-gradient(var(--secondary-color), var(--secondary-color)), 
+                    linear-gradient(90deg, var(--accent-color), var(--accent-color));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  overflow: hidden;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 767px) {
+  .simple-card-container {
+    padding: 15px;
+  }
+  
+  .simple-card-title {
+    font-size: 24px;
+  }
+  
+  .simple-card-content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .simple-card-container {
+    padding: 10px;
+  }
+  
+  .simple-card-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .simple-card-content {
+    padding: 12px;
+  }
+  
+  .simple-card-subtitle {
+    font-size: 14px;
+  }
+  
+  .simple-card-techstack {
+    font-size: 12px;
+  }
+  
+  .simple-card-text {
+    font-size: 14px;
+    margin-bottom: 12px;
   }
 }

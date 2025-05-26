@@ -7,8 +7,6 @@ import Name from '/src/components/Name/Name.jsx';
 function Hero({ personalInfo }) {
   return (
     <div className="hero">
-      {/* Grid Background */}
-      <div className="grid-background"></div>
       
       <div className="hero-content">
         <h2 className="hello">Hello I'm</h2>

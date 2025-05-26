@@ -1,14 +1,28 @@
 .skill-card {
-    /* scale: 2; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    height: 120px;
-    margin: 30px;
-    padding: 0px;
-    background-color: var( --secondary-color);
+    width: 15vh;
+    height: 15vh;
+    margin: 20px;
+    padding: 15px;
+    background-color: var(--secondary-color);
     border-radius: 20px;
-    
+    transition: all 0.3s ease;
+}
+
+/* Add hover effect */
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 245, 160, 0.15);
+}
+
+@media (max-width: 768px) {
+    .skill-card {
+        width: 12vh;
+        height: 12vh;
+        margin: 10px;
+        padding: 10px;
+    }
 }

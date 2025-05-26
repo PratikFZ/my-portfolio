@@ -6,66 +6,8 @@
     padding: 2rem 0;
     min-height: calc(100vh - 100px);
     align-items: center;
-  }
-
-  .grid-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    overflow: hidden;
-  }
-  
-  /* Create the base grid with multiple fade techniques */
-  .grid-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      linear-gradient(to right, rgba(200, 200, 200, 0.26) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(200, 200, 200, 0.171) 1px, transparent 1px);
-    background-size: 40px 40px;
-    
-    /* This is the magic: using a four-sided gradient for perfect fading in all directions */
-    mask-image: 
-      radial-gradient(
-        ellipse 80% 70% at 50% 50%,
-        black 0%,
-        black 30%,
-        rgba(0, 0, 0, 0.3) 65%,
-        transparent 100%
-      );
-    -webkit-mask-image: 
-      radial-gradient(
-        ellipse 80% 70% at 50% 50%,
-        black 0%,
-        black 30%,
-        rgba(0, 0, 0, 0.3) 65%,
-        transparent 100%
-      );
-  }
-  
-  /* Add additional vertical fading for top and bottom */
-  .grid-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(
-      to bottom,
-      #1a1a1a 0%,
-      transparent 15%,
-      transparent 85%,
-      #1a1a1a
-    );
+    height: 100vh;
+    position: relative;
   }
   
   /* Make sure all content appears above the grid */
@@ -76,8 +18,8 @@
   }
 
   .profile-img {
-    width: 350px;
-    height: 350px;
+    width: 45vh;
+    height: 45vh;
     border-radius: 50%; /* Makes it circular */
     object-fit: cover;
   }
@@ -138,8 +80,8 @@
 
 .profile-image {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 50vh;
+  height: 50vh;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -184,64 +126,154 @@
   overflow: hidden;
 }
 
-/* RESPONSIVE */
+/* Mobile (768px and below) - your existing styles enhanced */
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 2rem 1rem;
-    
+    padding: 8rem 1rem;
+    gap: 1rem;
+    min-height: auto; /* Remove fixed height on mobile for better adaptability */
+  }
+
+  .hello, .name {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin: 0 auto 1.5rem auto; /* Center the subtitle */
+    max-width: 450px;
   }
 
   .hero-content {
     order: 1;
-    margin-bottom: 2rem;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
   .download-btn {
     margin-top: 1rem;
     width: 100%;
+    max-width: 300px;
     justify-content: center;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
   }
   
   .profile-image-container {
     order: -1;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     justify-content: center;
-    align-items: center;
-    
   }
   
   .profile-image {
     width: 250px;
     height: 250px;
   }
+  
   .profile-img {
-    width: 90%;
-    height: 90%;
-    border-radius: 50%;
-    object-fit: cover;
-  } 
-  /* Adjust the rotating border for smaller screens */
-  .profile-image::before {
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-width: 3px;
+    width: 95%;
+    height: 95%;
+  }
+}
+
+/* Small mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 8rem 0.75rem;
   }
   
   .hello, .name {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    max-width: 350px;
   }
   
-  .stat-value {
-    font-size: 2.5rem;
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .profile-image::before {
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-width: 2px;
+  }
+  
+  .download-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Very small devices (360px and below) */
+@media (max-width: 360px) {
+  .hello, .name {
+    font-size: 1.7rem;
+  }
+  
+  .subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .profile-image::before {
+    border-width: 2px;
+  }
+  
+  .download-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape mode on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    grid-template-columns: 1fr 1fr; /* Keep two columns layout in landscape */
+    padding: 1rem;
+    min-height: auto;
+    gap: 1rem;
+  }
+  
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .hello, .name {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .download-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .hero-content {
+    order: 0;
+    text-align: left;
+  }
+  
+  .profile-image-container {
+    order: 0;
+    margin-bottom: 0;
   }
 }

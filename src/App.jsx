@@ -82,6 +82,8 @@ function App() {
 
   return (
     <div className="app">
+      {/* Grid Background */}
+      <div className="grid-background"></div>
       <Navbar currPageIndex={currPageIndex} setCurrPageIndex={setCurrPageIndex} />
       <main className="main-content">
         <Hero personalInfo={personalInfo} />
